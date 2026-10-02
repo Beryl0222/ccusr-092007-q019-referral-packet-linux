@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "referral_id": "ref-2026-0007",
+  "patient_id": "pat-匿名化-041",
+  "disease_code": "chest_pain",
+  "risk_level": "high",
+  "purpose": "transfer_receiving",
+  "parties": ["乡镇卫生院A", "县人民医院B"],
+  "declarations": [
+    {
+      "item_id": "vs-001",
+      "category": "vital_signs",
+      "source": "乡镇卫生院A/监护仪M3",
+      "collected_at": "2026-09-20T08:40:00+08:00",
+      "completeness": "complete",
+      "consent": true,
+      "content_hash": "h-vs-001",
+      "size": 2048
+    },
+    {
+      "item_id": "ecg-001",
+      "category": "ecg",
+      "source": "乡镇卫生院A/心电图机E1",
+      "collected_at": "2026-09-20T08:45:00+08:00",
+      "completeness": "complete",
+      "consent": true,
+      "content_hash": "h-ecg-001",
+      "size": 512000
+    },
+    {
+      "item_id": "med-001",
+      "category": "medications",
+      "source": "乡镇卫生院A/药房系统",
+      "collected_at": "2026-09-20T08:30:00+08:00",
+      "completeness": "complete",
+      "consent": true,
+      "content_hash": "h-med-001",
+      "size": 1024
+    }
+  ]
+}
