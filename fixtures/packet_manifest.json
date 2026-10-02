@@ -4,5 +4,97 @@
   "domain": "referral_packet",
   "occurred_at": "2026-09-20T09:00:00+08:00",
   "revision": 1,
-  "source": "业务样例"
+  "source": "业务样例",
+  "ruleset_version": 1,
+  "scenario": {
+    "note": "以下为脱敏业务样例：展示一次胸痛转诊的最小条目声明、缺失提示与版本演进，不含任何真实患者数据",
+    "referral_key": "REF-20260920-019",
+    "patient_id": "PSEUDO-7A21",
+    "condition": "chest_pain",
+    "risk": "urgent",
+    "declared_by": "doctor-prim-04",
+    "facility": "某基层卫生院（脱敏）",
+    "items": [
+      {
+        "code": "vitals",
+        "source": "诊室监护仪 2026-09-20 08:42",
+        "collected_at": "2026-09-20T08:42:00+08:00",
+        "completeness": "complete",
+        "patient_authorized": true
+      },
+      {
+        "code": "allergies",
+        "source": "患者本人陈述并签字",
+        "collected_at": "2026-09-20T08:35:00+08:00",
+        "completeness": "complete",
+        "patient_authorized": true,
+        "note": "否认药物及食物过敏（显式声明）"
+      },
+      {
+        "code": "chief_complaint",
+        "source": "门诊病历第 1 页",
+        "collected_at": "2026-09-20T08:40:00+08:00",
+        "completeness": "complete",
+        "patient_authorized": true
+      },
+      {
+        "code": "current_medication",
+        "source": "门诊病历第 2 页",
+        "collected_at": "2026-09-20T08:40:00+08:00",
+        "completeness": "complete",
+        "patient_authorized": true
+      },
+      {
+        "code": "ecg_report",
+        "source": "便携心电设备 ECG-22",
+        "collected_at": "2026-09-20T08:45:00+08:00",
+        "completeness": "complete",
+        "patient_authorized": true
+      },
+      {
+        "code": "lab_summary",
+        "source": "待回报",
+        "collected_at": "2026-09-20T08:46:00+08:00",
+        "completeness": "unavailable",
+        "patient_authorized": true,
+        "note": "肌钙蛋白外送未回，系统只提示、不阻塞转诊"
+      },
+      {
+        "code": "infusion_record",
+        "source": "抢救记录单",
+        "collected_at": "2026-09-20T08:50:00+08:00",
+        "completeness": "partial",
+        "patient_authorized": true,
+        "note": "照片仅拍到处置页，剂量页缺页"
+      },
+      {
+        "code": "patient_authorization",
+        "source": "电子授权书 AUTH-019",
+        "collected_at": "2026-09-20T08:30:00+08:00",
+        "completeness": "complete",
+        "patient_authorized": true
+      }
+    ],
+    "expected_findings": [
+      "lab_summary: 制度要求，医生声明无法取得（提示而非拦截）",
+      "infusion_record: 医生自声明不完整（缺页）"
+    ],
+    "later_revisions": [
+      {
+        "revision": 2,
+        "change_reason": "correction",
+        "note": "县医院回报检验结论后更正；revision 1 已由分诊台签收，继续冻结可审计"
+      },
+      {
+        "revision": 3,
+        "change_reason": "withdrawal",
+        "note": "撤回一张与本次用途无关的照片附件，清单出现该内容条目的墓碑"
+      },
+      {
+        "revision": 4,
+        "change_reason": "recheck",
+        "note": "到院复测生命体征，来源标注为县医院急诊，复测不抹除基层原始声明"
+      }
+    ]
+  }
 }
